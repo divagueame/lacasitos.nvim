@@ -1,5 +1,5 @@
-YourPluginName.disable()	neovim-plugin-boilerplate.txt	/*YourPluginName.disable()*
-YourPluginName.enable()	neovim-plugin-boilerplate.txt	/*YourPluginName.enable()*
-YourPluginName.options	neovim-plugin-boilerplate.txt	/*YourPluginName.options*
-YourPluginName.setup()	neovim-plugin-boilerplate.txt	/*YourPluginName.setup()*
-YourPluginName.toggle()	neovim-plugin-boilerplate.txt	/*YourPluginName.toggle()*
+Lacasitos.disable()	lacasitos.txt	/*Lacasitos.disable()*
+Lacasitos.enable()	lacasitos.txt	/*Lacasitos.enable()*
+Lacasitos.options	lacasitos.txt	/*Lacasitos.options*
+Lacasitos.setup()	lacasitos.txt	/*Lacasitos.setup()*
+Lacasitos.toggle()	lacasitos.txt	/*Lacasitos.toggle()*
