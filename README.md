@@ -3,28 +3,12 @@
 </p>
 
 <p align="center">
-    > A catch phrase that describes your plugin.
+        Simple and quick picker. Single Stroke ui selector for Neovim.
 </p>
-
-<div align="center">
-    > Drag your video (<10MB) here to host it for free on GitHub.
-</div>
-
-<div align="center">
-
-> Videos don't work on GitHub mobile, so a GIF alternative can help users.
-
-_[GIF version of the showcase video for mobile users](SHOWCASE_GIF_LINK)_
-
-</div>
 
 ## ⚡️ Features
 
-> Write short sentences describing your plugin features
-
-- FEATURE 1
-- FEATURE ..
-- FEATURE N
+- Take user input fast
 
 ## 📋 Installation
 

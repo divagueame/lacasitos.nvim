@@ -1,7 +1,14 @@
 local main = require("lacasitos.main")
 local config = require("lacasitos.config")
+local get_user_choice = require("lacasitos.get_user_choice")
 
 local Lacasitos = {}
+
+-- Exposed API for get_user_choice
+-- Single stroke option picker
+-- Pass a table into it, and will display a float window with the options mapped to single-stroke keymaps.
+-- Returns the value chosen in a callback
+Lacasitos.get_user_choice = get_user_choice
 
 --- Toggle the plugin by calling the `enable`/`disable` methods respectively.
 function Lacasitos.toggle()
