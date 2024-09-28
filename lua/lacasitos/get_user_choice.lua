@@ -37,8 +37,11 @@ end
 
 
 local get_user_choice = function(args)
+  if next(args) == nil then
+    return nil
+  end
   local custom_chars = {
-    'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
+    'f', 'd', 's', 'a', 'r', 'e', 't', 'w', 'q',
     'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
     'z', 'x', 'c', 'v', 'b', 'n', 'm',
     '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
