@@ -40,7 +40,7 @@ function log.notify(scope, level, verbose, str, ...)
     vim.notify(
         string.format("[lacasitos.nvim@%s] %s", scope, string.format(str, ...)),
         level,
-        { title = "lacasitos.nvim" }
+        { title = "your-plugin-name.nvim" }
     )
 end
 
