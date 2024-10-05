@@ -36,7 +36,7 @@ local function create_floating_window(content)
 end
 
 
-local get_user_choice = function(args)
+local choose_option = function(args)
   if next(args) == nil then
     return nil
   end
@@ -67,4 +67,4 @@ local get_user_choice = function(args)
   return options[key]
 end
 
-return get_user_choice
+return choose_option

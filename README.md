@@ -2,115 +2,48 @@
   <h1 align="center">lacasitos.nvim</h2>
 </p>
 
-<p align="center">
-        Simple and quick picker. Single Stroke ui selector for Neovim.
-</p>
+<p align="center">Simple and quick picker. <b>Single Stroke</b> UI selector for Neovim.</p>
 
 ## ⚡️ Features
 
-- Take user input fast
+- Take user input fast with a single keystroke
+- Lightweight and easy to integrate
+- Perfect for plugin developers and custom Neovim configurations
+- Minimal UI that doesn't disrupt your focus
 
 ## 📋 Installation
 
-<div align="center">
-<table>
-<thead>
-<tr>
-<th>Package manager</th>
-<th>Snippet</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-[wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
-
-</td>
-<td>
-
-```lua
--- stable version
-use {"lacasitos.nvim", tag = "*" }
--- dev version
-use {"lacasitos.nvim"}
+Using Lazy:
+```
+return {
+	"divagueame/lacasitos.nvim",
+	config = function()
+		require("lacasitos").setup()
+	end,
+}
 ```
 
-</td>
-</tr>
-<tr>
-<td>
-
-[junegunn/vim-plug](https://github.com/junegunn/vim-plug)
-
-</td>
-<td>
-
-```lua
--- stable version
-Plug "lacasitos.nvim", { "tag": "*" }
--- dev version
-Plug "lacasitos.nvim"
+## ☄ Usage
+```
+local lacasitos = require("lacasitos")
+local animals = { "cat", "dog", "mouse"}
+selected_option = lacasitos.choose_option(animals)
 ```
 
-</td>
-</tr>
-<tr>
-<td>
+## Examples
 
-[folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-
-</td>
-<td>
-
-```lua
--- stable version
-require("lazy").setup({{"lacasitos.nvim", version = "*"}})
--- dev version
-require("lazy").setup({"lacasitos.nvim"})
+In your plugin or Neovim config:
 ```
-
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-## ☄ Getting started
-
-> Describe how to use the plugin the simplest way
-
-## ⚙ Configuration
-
-> The configuration list sometimes become cumbersome, making it folded by default reduce the noise of the README file.
-
-<details>
-<summary>Click to unfold the full list of options with their default values</summary>
-
-> **Note**: The options are also available in Neovim by calling `:h lacasitos.options`
-
-```lua
-require("lacasitos").setup({
-    -- you can copy the full list from lua/lacasitos/config.lua
-})
+-- Example: Quick theme switcher
+local themes = { "gruvbox", "nord", "tokyonight" }
+local selected_theme = lacasitos.choose_option(themes)
+vim.cmd("colorscheme " .. selected_theme)
 ```
-
-</details>
-
-## 🧰 Commands
-
-|   Command   |         Description        |
-|-------------|----------------------------|
-|  `:Toggle`  |     Enables the plugin.    |
 
 ## ⌨ Contributing
 
 PRs and issues are always welcome. Make sure to provide as much context as possible when opening one.
 
-## 🗞 Wiki
+## 📜 License
+Distributed under the MIT License. See LICENSE for more information.
 
-You can find guides and showcase of the plugin on [the Wiki](https://github.com/marce/lacasitos.nvim/wiki)
-
-## 🎭 Motivations
-
-> If alternatives of your plugin exist, you can provide some pros/cons of using yours over the others.
