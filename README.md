@@ -1,8 +1,9 @@
 <p align="center">
-  <h1 align="center">lacasitos.nvim</h2>
-</p>
 
 <p align="center">Simple and quick picker. <b>Single Stroke</b> UI selector for Neovim.</p>
+
+
+![Demo](./doc/demo.png)
 
 ## ⚡️ Features
 

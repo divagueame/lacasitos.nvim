@@ -1,19 +1,9 @@
 ==============================================================================
 ------------------------------------------------------------------------------
-                                                            *Lacasitos.toggle()*
-                              `Lacasitos.toggle`()
-Toggle the plugin by calling the `enable`/`disable` methods respectively.
-
-------------------------------------------------------------------------------
-                                                            *Lacasitos.enable()*
-                          `Lacasitos.enable`({scope})
-Initializes the plugin, sets event listeners and internal state.
-
-------------------------------------------------------------------------------
-                                                           *Lacasitos.disable()*
-                             `Lacasitos.disable`()
-Disables the plugin, clear highlight groups and autocmds, closes side buffers and resets the internal state.
-
+                                                            *Lacasitos.choose_option()*
+                              `Lacasitos.choose_option`()
+Display a floating window with the options passed as an argument. Only one
+option can be chosen. Returns the chosen value.
 
 ==============================================================================
 ------------------------------------------------------------------------------
