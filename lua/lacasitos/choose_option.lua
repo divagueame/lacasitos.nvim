@@ -64,7 +64,7 @@ local choose_option = function(args)
   local key = vim.fn.nr2char(char)
   vim.api.nvim_win_close(win_id, true)
 
-  return options[key]
+  return options[key] or nil
 end
 
 return choose_option
