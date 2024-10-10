@@ -40,6 +40,32 @@ local selected_theme = lacasitos.choose_option(themes)
 vim.cmd("colorscheme " .. selected_theme)
 ```
 
+## config
+
+You can pass a config table to setup or to choose_option to override the default values for all windows or for a single one:
+```lua
+local lacasitos = require("lacasitos")
+
+lacasitos.setup({
+    window  = {
+        title = "My common custom title"
+    }
+})
+
+vim.api.nvim_set_hl(0, 'MyCustomHighlight', { fg = '#FFD700', bg = '#005f87', bold = true })
+
+local animals = { "cat", "dog", "mouse"}
+
+local opts = {
+    title = {{"Unique colored title", "MyCustomHighlight"}} -- With your own highlight
+    -- title = "My unique title"
+}
+local selected_option = lacasitos.choose_option(animals, opts)
+
+print('Your animal is ' .. selected_option)
+```
+
+
 ## ⌨ Contributing
 
 PRs and issues are always welcome. Make sure to provide as much context as possible when opening one.

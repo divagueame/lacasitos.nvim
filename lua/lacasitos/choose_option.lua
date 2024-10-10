@@ -2,7 +2,7 @@ vim.api.nvim_command('highlight LacasitosFloatingWindowBorder guifg=#3f3f0f guib
 vim.api.nvim_command('highlight LacasitosFloatingWindowContent guifg=#cdcdcd guibg=NONE')
 vim.api.nvim_command('highlight LacasitosFloatingWindowPrefix guifg=#F38795 guibg=NONE')
 
-local function create_floating_window(content)
+local function create_floating_window(content, window_config)
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, content)
 
@@ -20,23 +20,30 @@ local function create_floating_window(content)
   local width = max_width + padding
   local height = #content
 
-  local opts = {
+  local win_config = {
     width = width,
     height = height,
-    style = 'minimal',
-    relative = 'editor',
     col = (vim.o.columns - width) / 2,
     row = (vim.o.lines - height) / 2,
-    border = "rounded",
-    title = { {" Choose ", "Label"} },
-    title_pos = 'left',
+    -- style = 'minimal',
+    -- relative = 'editor',
+    -- border = "rounded",
+    -- title = { {" Choose ", "Label"} },
+    -- title_pos = 'left',
   }
 
-  return vim.api.nvim_open_win(buf, true, opts)
+  local config = _G.Lacasitos.config.window
+  config = vim.tbl_extend("force", config, win_config)
+  config = vim.tbl_extend("force", config, window_config or {})
+  if config.title and type(config.title) == "string" then
+    config.title = { {config.title, "Label"} }
+  end
+
+  return vim.api.nvim_open_win(buf, true, config)
 end
 
 
-local choose_option = function(args)
+local choose_option = function(args, window_config)
   if next(args) == nil then
     return nil
   end
@@ -57,7 +64,7 @@ local choose_option = function(args)
     table.insert(display_content, string.format(" %s %s", letter, file))
   end
 
-  local win_id = create_floating_window(display_content)
+  local win_id = create_floating_window(display_content, window_config)
   vim.cmd("redraw")
 
   local char = vim.fn.getchar()

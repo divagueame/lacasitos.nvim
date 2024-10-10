@@ -8,8 +8,15 @@ local Lacasitos = {}
 --- Default values:
 ---@eval return MiniDoc.afterlines_to_code(MiniDoc.current.eval_section)
 Lacasitos.options = {
-    -- Prints useful logs about what event are triggered, and reasons actions are executed.
-    debug = false,
+  -- Prints useful logs about what event are triggered, and reasons actions are executed.
+  debug = false,
+  window ={
+    style = 'minimal',
+    relative = 'editor',
+    border = "rounded",
+    title = { {" Choose ", "Label"} },
+    title_pos = 'left'
+  }
 }
 
 ---@private
