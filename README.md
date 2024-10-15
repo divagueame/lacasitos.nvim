@@ -14,7 +14,7 @@
 ## 📋 Installation
 
 Using Lazy:
-```
+```lua
 return {
 	"divagueame/lacasitos.nvim",
 	config = function()
@@ -24,7 +24,7 @@ return {
 ```
 
 ## ☄ Usage
-```
+```lua
 local lacasitos = require("lacasitos")
 local animals = { "cat", "dog", "mouse"}
 selected_option = lacasitos.choose_option(animals)
@@ -33,7 +33,7 @@ selected_option = lacasitos.choose_option(animals)
 ## Examples
 
 In your plugin or Neovim config:
-```
+```lua
 -- Example: Quick theme switcher
 local themes = { "gruvbox", "nord", "tokyonight" }
 local selected_theme = lacasitos.choose_option(themes)
@@ -43,13 +43,13 @@ vim.cmd("colorscheme " .. selected_theme)
 
 Instead of an table of strings, you can pass a table instead of a string for each option, when the displayed text and the returned value are not expected to be the same.
 
-```
-      local themes = {
-        { label= "Gruvbox Material", value = "gruvbox-material" },
-        { label= "Kanagawa Dragon", value = "kanagawa-dragon"}
-      }
-      local selected_theme = lacasitos.choose_option(themes)
-      vim.cmd("colorscheme " .. selected_theme)
+```lua
+local themes = {
+    { label= "Gruvbox Material", value = "gruvbox-material" },
+    { label= "Kanagawa Dragon", value = "kanagawa-dragon"}
+}
+local selected_theme = lacasitos.choose_option(themes)
+vim.cmd("colorscheme " .. selected_theme)
 ```
 
 ## config
