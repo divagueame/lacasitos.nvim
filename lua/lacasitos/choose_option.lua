@@ -2,6 +2,28 @@ vim.api.nvim_command('highlight LacasitosFloatingWindowBorder guifg=#3f3f0f guib
 vim.api.nvim_command('highlight LacasitosFloatingWindowContent guifg=#cdcdcd guibg=NONE')
 vim.api.nvim_command('highlight LacasitosFloatingWindowPrefix guifg=#F38795 guibg=NONE')
 
+local get_value = function(entry)
+  if type(entry) == 'string' then
+    return entry
+  elseif type(entry) == 'table' then
+    return entry['value']
+  else
+    return nil
+  end
+end
+
+local get_label = function(entry)
+  if type(entry) == 'string' then
+    return entry
+  elseif type(entry) == 'table' then
+    return entry['label']
+  else
+    return nil
+  end
+end
+
+
+
 local function create_floating_window(content, window_config)
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, content)
@@ -58,10 +80,10 @@ local choose_option = function(args, window_config)
   }
   local options = {}
   local display_content = {}
-  for i, file in ipairs(args) do
+  for i, argument in ipairs(args) do
     local letter = custom_chars[i]
-    options[letter] = file
-    table.insert(display_content, string.format(" %s %s", letter, file))
+    options[letter] = argument
+    table.insert(display_content, string.format(" %s %s", letter, get_label(argument)))
   end
 
   local win_id = create_floating_window(display_content, window_config)
@@ -71,7 +93,7 @@ local choose_option = function(args, window_config)
   local key = vim.fn.nr2char(char)
   vim.api.nvim_win_close(win_id, true)
 
-  return options[key] or nil
+  return get_value(options[key])
 end
 
 return choose_option
